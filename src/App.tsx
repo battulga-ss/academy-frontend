@@ -1,29 +1,31 @@
 import { useState } from "react";
+
 import "./App.css";
 
-function Welcome({ name }: { name: string }) {
-  return <h1>Hello, {name}</h1>;
-}
-
 function App() {
-
-
-
-  const [name, setName] = useState("");
+  const [count, setCount] = useState(0);
 
   return (
-    <div>
-      s
-      <input
-        placeholder="Enter your name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-
-      <Welcome name={name} />
-    </div>
+    <>
+     <h1>{count}</h1>
+      <div>
+        <button onClick={() => setCount((count) => count + 1)}>
+          + 
+        </button>
+          <button onClick={() => setCount((count) => count = 0)}>
+          reset
+        </button>
+         <button onClick={() => setCount((count) => count - 1)}>
+          - 
+        </button>
+        <p>
+         
+        </p>
+      </div>
+    
+    </>
   );
 }
 
 export default App;
+
