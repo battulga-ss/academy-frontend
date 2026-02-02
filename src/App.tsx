@@ -1,28 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
-function Welcome({ name }: { name: string }) {
-  return <h1>Hello, {name}</h1>;
+interface IMovie {
+  title: string;
 }
 
 function App() {
+  const [movies, setMovies] = useState<IMovie[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
+  useEffect(() => {
+    fetch("http://localhost:3000/movies/movies")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setLoading(false);
+        setMovies(data);
+      });
+  }, []);
 
-
-  const [name, setName] = useState("");
+  if (loading) {
+    return <h1>Unshij bn</h1>;
+  }
 
   return (
-    <div>
-      s
-      <input
-        placeholder="Enter your name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-
-      <Welcome name={name} />
-    </div>
+    <>
+      {movies.map((movie) => {
+        return <h1>{movie.title}</h1>;
+      })}
+    </>
   );
 }
 
