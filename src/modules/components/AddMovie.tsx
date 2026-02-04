@@ -7,7 +7,7 @@ export const AddMovie = () => {
 
   const movieAdd = () => {
     const value = inputRef?.current?.value;
-
+    console.log(value, "valllee");
     if (!value) {
       return window.alert("Title oruulna uu");
     }
@@ -16,7 +16,7 @@ export const AddMovie = () => {
   };
 
   return (
-    <div>
+    <div className="grid grid-cols-4 gap-4 max-w-[800px] mx-auto">
       <input ref={inputRef} placeholder="Movie title" />
       <button onClick={movieAdd}>add movie</button>
     </div>
