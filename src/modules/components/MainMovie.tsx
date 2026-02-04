@@ -20,12 +20,18 @@ export const MovieMain = () => {
     setDataType(type);
   };
   return (
-    <>
-      <button onClick={() => changeDataType("all")}>all movies</button>
-      <button onClick={() => changeDataType("drama")}>Drama movies</button>
-      <button onClick={() => changeDataType("addMovie")}>Add movie</button>
+    <div className="bg-slate-950 text-slate-200 justify-center  ">
+      <button className="button bigText" onClick={() => changeDataType("all")}>
+        all movies
+      </button>
+      <button className="button" onClick={() => changeDataType("drama")}>
+        Drama movies
+      </button>
+      <button className="button" onClick={() => changeDataType("addMovie")}>
+        Add movie
+      </button>
 
       <MovieContent dataType={dataType} />
-    </>
+    </div>
   );
 };
