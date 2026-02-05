@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useAddMovie } from "../hooks/useAddMovie.tsx";
+import { useAddMovie } from "../hooks/useAddMovie";
 
 export const AddMovie = () => {
   const inputRef = useRef(null);
@@ -7,18 +7,45 @@ export const AddMovie = () => {
 
   const movieAdd = () => {
     const value = inputRef?.current?.value;
-    console.log(value, "valllee");
+
     if (!value) {
-      return window.alert("Title oruulna uu");
+      return window.alert("Medeelle oruulna uu!");
     }
 
     addMovie(value);
   };
 
   return (
-    <div className="grid grid-cols-4 gap-4 max-w-[800px] mx-auto">
-      <input ref={inputRef} placeholder="Movie title" />
-      <button onClick={movieAdd}>add movie</button>
+    <div>
+      <input
+        className="flex justify-center"
+        ref={inputRef}
+        placeholder="Movie title"
+      />
+      <input
+        className="flex justify-center"
+        ref={inputRef}
+        placeholder="Year"
+      />
+      <input
+        className="flex justify-center"
+        ref={inputRef}
+        placeholder="Run time"
+      />
+      <input
+        className="flex justify-center"
+        ref={inputRef}
+        placeholder="plot"
+      />
+      <input
+        className="flex justify-center "
+        ref={inputRef}
+        placeholder="directors"
+      />
+
+      <button className="flex bg-amber-800 mask-origin-fill" onClick={movieAdd}>
+        add movie
+      </button>
     </div>
   );
 };

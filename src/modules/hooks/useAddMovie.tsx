@@ -9,7 +9,7 @@ export const useAddMovie = () => {
       });
     },
     onSuccess: () => {
-      window.alert("12312");
+      window.alert("SUCCESSSS");
     },
   });
 

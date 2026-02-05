@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { AllMovies } from "./AllMovies";
-import { DramaMovies } from "./DramaMovies";
+import { AllMovies } from "./AllMovies.tsx";
+import { DramaMovies } from "./DramaMovies.tsx";
 import { AddMovie } from "./AddMovie";
 
 export const MovieContent = ({ dataType }: { dataType: string }) => {
@@ -20,9 +20,9 @@ export const MovieMain = () => {
     setDataType(type);
   };
   return (
-    <div className="bg-slate-950 text-slate-200 justify-center  ">
-      <button className="button bigText" onClick={() => changeDataType("all")}>
-        all movies
+    <div className="bg-slate-950 text-slate-200">
+      <button className="button " onClick={() => changeDataType("all")}>
+        AllMovies
       </button>
       <button className="button" onClick={() => changeDataType("drama")}>
         Drama movies
