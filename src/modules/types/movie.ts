@@ -12,4 +12,5 @@ export interface IMovie {
 }
 export interface IComments {
   text: String;
+  id: string;
 }

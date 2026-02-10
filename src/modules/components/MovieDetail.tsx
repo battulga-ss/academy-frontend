@@ -7,18 +7,21 @@ import { useRef } from "react";
 export const MovieDetail = () => {
   const { id } = useParams();
   const { movies, loading } = useGetMoviesTans();
-  const inputRef = useRef(null);
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const { Commentadd } = useAddComment();
 
   const AddComment = () => {
-    // const { CommentAdd } = useAddComment();
-    console.log(inputRef, "inputRef");
     const value = inputRef?.current?.value;
-    console.log(value, "asdasd");
+    const email = emailRef?.current?.value;
     if (!value) {
-      return window.alert("Medeelle oruulna uu!");
+      return window.alert("comment oo oruulna uu!");
     }
-
-    // CommentAdd(value);
+    if (!email) {
+      return window.alert("email ee oruulna uu!");
+    }
+    Commentadd({ text: value, movie_id: id, email: email });
   };
 
   if (loading) {
@@ -67,9 +70,9 @@ export const MovieDetail = () => {
                   <h1 className="text-4xl font-bold text-white mb-4">
                     {movie.title}
                   </h1>
-                  <h1 className="space-y-6 text-4xl font-bold text-white mb-4">
+                  <h2 className="space-y-6 text-3xl font-bold text-white mb-4">
                     GENRES: {movie.genre}
-                  </h1>
+                  </h2>
                   <div className="flex flex-wrap gap-6 text-slate-300">
                     <span className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
@@ -97,19 +100,28 @@ export const MovieDetail = () => {
                     </span>
                   </div>
                 </div>
-                <h1 className=" text-amber-50 text-3xl">
-                  COMMENT:
+                <div className="mt-6 space-y-3">
+                  <h2 className="text-amber-50 text-2xl font-semibold">
+                    Comment
+                  </h2>
                   <input
-                    className=" text-amber-50 flex justify-center bg-amber-700 border-amber-200"
-                    placeholder="comment uldeeh"
+                    ref={emailRef}
+                    placeholder="email"
+                    className="w-full p-3 rounded-lg bg-amber-700 text-amber-50 border border-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-400"
                   />
-                </h1>
-                <button
-                  className=" bg-amber-500 text-amber-50 "
-                  onClick={AddComment}
-                >
-                  ADD COMM
-                </button>
+                  <input
+                    ref={inputRef}
+                    placeholder="comment"
+                    className="w-full p-3 rounded-lg bg-amber-700 text-amber-50 border border-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  />
+
+                  <button
+                    className="px-6 py-2 bg-amber-500 hover:bg-amber-600 text-black font-semibold rounded-lg transition"
+                    onClick={AddComment}
+                  >
+                    Add Comment
+                  </button>
+                </div>
               </div>
             </div>
           </div>

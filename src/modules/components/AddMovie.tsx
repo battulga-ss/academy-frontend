@@ -2,9 +2,8 @@ import { useRef } from "react";
 import { useAddMovie } from "../hooks/useAddMovie";
 
 export const AddMovie = () => {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const { addMovie } = useAddMovie();
-
   const movieAdd = () => {
     const value = inputRef?.current?.value;
 
