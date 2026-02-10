@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { MovieCard } from "./MovieCard";
 
 export const ActionMovies = () => {
+  
   const { movies, loading, isError } = useGetMoviesTans("action");
 
   if (loading) {

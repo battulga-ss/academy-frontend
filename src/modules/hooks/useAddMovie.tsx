@@ -1,15 +1,41 @@
 import { useMutation } from "@tanstack/react-query";
 
+type AddMoviePayload = {
+  title: string;
+  year: number;
+  runtime: number;
+  genre: string;
+  plot: string;
+  poster: string;
+};
+
 export const useAddMovie = () => {
   const { mutate } = useMutation({
-    mutationFn: (title: string) => {
-      return fetch(`http://localhost:3000/movie/addMovie`, {
+    mutationFn: ({
+      title,
+      year,
+      runtime,
+      genre,
+      plot,
+      poster,
+    }: AddMoviePayload) => {
+      return fetch("http://localhost:3000/movie/addMovie", {
         method: "POST",
-        body: JSON.stringify({ title }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          year,
+          runtime,
+          genre,
+          plot,
+          poster,
+        }),
       });
     },
     onSuccess: () => {
-      window.alert("SUCCESSSS");
+      window.alert("SUCCESS");
     },
   });
 
