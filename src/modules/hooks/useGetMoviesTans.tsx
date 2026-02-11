@@ -14,12 +14,5 @@ export const useGetMoviesTans = (genre?: string) => {
     },
   });
 
-  //   const [movies, setMovies] = useState<IMovie[]>([]);
-  //   const [loading, setLoading] = useState<boolean>(true);
-
-  //   useEffect(() => {
-
-  //   }, [genre]);
-
   return { movies: data, loading: isLoading, isError };
 };

@@ -1,8 +1,14 @@
 import { useParams, Link } from "react-router-dom";
 import { useGetMoviesTans } from "../hooks/useGetMoviesTans";
+import { useShowCommentTans } from "../hooks/useShowCommentTans";
 import { LoaderCircle, Star, Calendar, Clock, ArrowLeft } from "lucide-react";
 import { useAddComment } from "../hooks/useAddComment";
 import { useRef } from "react";
+export const ShowComments = () => {
+  const { id } = useParams();
+
+  const { comments, loading } = useShowCommentTans();
+};
 
 export const MovieDetail = () => {
   const { id } = useParams();
@@ -71,7 +77,7 @@ export const MovieDetail = () => {
                     {movie.title}
                   </h1>
                   <h2 className="space-y-6 text-3xl font-bold text-white mb-4">
-                    GENRES: {movie.genre}
+                    GENRES:{movie.genre}
                   </h2>
                   <div className="flex flex-wrap gap-6 text-slate-300">
                     <span className="flex items-center gap-2">
