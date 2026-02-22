@@ -3,11 +3,11 @@ import { AllMovies } from "./AllMovies";
 import { DramaMovies } from "./DramaMovies";
 import { AddMovie } from "./AddMovie";
 import { ActionMovies } from "./ActionMovies";
-type DataType = "all" | "drama" | "addMovie" | "action";
+type DataType = "all" | "drama" | "addMovie" | "Action";
 
 const MovieContent = ({ dataType }: { dataType: DataType }) => {
   switch (dataType) {
-    case "action":
+    case "Action":
       return <ActionMovies />;
     case "all":
       return <AllMovies />;
@@ -15,6 +15,7 @@ const MovieContent = ({ dataType }: { dataType: DataType }) => {
       return <DramaMovies />;
     case "addMovie":
       return <AddMovie />;
+      
     default:
       return null;
   }
@@ -43,8 +44,8 @@ export const MovieMain = () => {
             🎬 All Movies
           </button>
           <button
-            className={buttonStyle("action")}
-            onClick={() => setDataType("action")}
+            className={buttonStyle("Action")}
+            onClick={() => setDataType("Action")}
           >
             🎬 Action Movies
           </button>
