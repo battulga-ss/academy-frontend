@@ -61,7 +61,7 @@ const { movies, loading } = useGetMoviesTans();
             {/* Poster */}
             <div className="lg:col-span-1">
               <img
-                src={movie.poster}
+                src={movie.poster || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShI4myohws0yjEb4MAN8FuiFM5cqC1wYHNvurpfzHS_vkE0WyBPGrAMdlVzxF0GWp1KsRApBODKx646Y9HSXl7dOq_ImOL1el_FqTVD8c&s=10"}
                 alt={movie.title}
                 className="w-full rounded-2xl shadow-2xl object-cover"
               />
